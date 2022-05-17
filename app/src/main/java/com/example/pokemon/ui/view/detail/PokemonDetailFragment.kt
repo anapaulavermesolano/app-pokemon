@@ -1,4 +1,4 @@
-package com.example.pokemon.ui.view
+package com.example.pokemon.ui.view.detail
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

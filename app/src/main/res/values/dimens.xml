@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_zero">0dp</dimen>
+    <dimen name="margin">16dp</dimen>
+    <dimen name="padding_name">4dp</dimen>
+    <dimen name="padding_image">8dp</dimen>
+    <dimen name="padding_message">16dp</dimen>
+    <dimen name="item_radius">12dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+    <dimen name="margin_image">5dp</dimen>
+    <dimen name="pokemon_name_size">20sp</dimen>
+</resources>
