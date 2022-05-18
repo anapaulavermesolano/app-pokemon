@@ -9,4 +9,5 @@
     <dimen name="card_elevation">4dp</dimen>
     <dimen name="margin_image">5dp</dimen>
     <dimen name="pokemon_name_size">20sp</dimen>
+    <dimen name="size_image">200dp</dimen>
 </resources>

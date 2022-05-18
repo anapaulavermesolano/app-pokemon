@@ -17,5 +17,9 @@
     <fragment
         android:id="@+id/pokemonDetailFragment"
         android:name="com.example.pokemon.ui.view.detail.PokemonDetailFragment"
-        android:label="PokemonDetailFragment" />
+        android:label="PokemonDetailFragment" >
+        <argument
+            android:name="pokemon"
+            app:argType="com.example.pokemon.data.model.PokemonResult" />
+    </fragment>
 </navigation>

@@ -10,6 +10,7 @@ import androidx.paging.LoadState
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.pokemon.R
+import com.example.pokemon.data.model.PokemonResult
 import com.example.pokemon.databinding.FragmentPokemonBinding
 import com.example.pokemon.ui.viewmodel.PokemonViewModel
 import com.example.pokemon.util.gone
@@ -27,10 +28,9 @@ class PokemonFragment : Fragment() {
     private var _binding: FragmentPokemonBinding? = null
     private val binding get() = _binding!!
     private val viewModel by viewModels<PokemonViewModel>()
-    private var job: Job? = null
 
     private val adapter by lazy {
-        PokemonAdapter(pokemonId = ::onClickPokemonListener)
+        PokemonAdapter(pokemon = ::onClickPokemonListener)
     }
 
     override fun onCreateView(
@@ -104,8 +104,8 @@ class PokemonFragment : Fragment() {
         }
     }
 
-    private fun onClickPokemonListener(idPokemon: Int) {
-        val actionFragment = PokemonFragmentDirections.actionPokemonFragmentToPokemonDetailFragment()
+    private fun onClickPokemonListener(pokemon: PokemonResult) {
+        val actionFragment = PokemonFragmentDirections.actionPokemonFragmentToPokemonDetailFragment(pokemon)
         findNavController().navigate(actionFragment)
     }
 

@@ -14,11 +14,10 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.example.pokemon.data.model.PokemonResult
 import com.example.pokemon.databinding.ItemPokemonBinding
-import com.example.pokemon.util.extractId
 import com.example.pokemon.util.gone
 import com.example.pokemon.util.visible
 
-class PokemonAdapter(private val pokemonId: (Int) -> Unit):
+class PokemonAdapter(private val pokemon: (PokemonResult) -> Unit):
     PagingDataAdapter<PokemonResult, PokemonAdapter.PokemonViewHolder>(PokemonDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PokemonViewHolder {
@@ -30,14 +29,14 @@ class PokemonAdapter(private val pokemonId: (Int) -> Unit):
 
     override fun onBindViewHolder(holder: PokemonViewHolder, position: Int) {
         val item = getItem(position)!!
-        holder.bind(item, pokemonId)
+        holder.bind(item, pokemon)
     }
 
     inner class PokemonViewHolder(private val itemBinding: ItemPokemonBinding):
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bind(
             model: PokemonResult,
-            callback: (Int) -> Unit
+            callback: (PokemonResult) -> Unit
         ) {
             itemBinding.apply {
                 pokemonName.text = model.name
@@ -72,7 +71,7 @@ class PokemonAdapter(private val pokemonId: (Int) -> Unit):
                     .into(pokemonImage)
 
                 root.setOnClickListener {
-                    callback.invoke(model.url.extractId().toInt())
+                    callback.invoke(model)
                 }
             }
         }
