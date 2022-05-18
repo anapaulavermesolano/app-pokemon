@@ -1,110 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.view.detail.PokemonDetailFragment">
 
-    <ProgressBar
-        android:id="@+id/progress"
-        android:layout_width="wrap_content"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="parent"  />
+        android:scrollbars="vertical"
+        android:layout_marginBottom="@dimen/margin">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/detail_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/chelsea_market"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@color/colorBlue"
-        android:textStyle="bold"
-        android:textSize="@dimen/pokemon_name_size"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="@dimen/margin"
-        tools:text="NAME POKEMON" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/pokemon_image"
-        android:layout_width="@dimen/size_image"
-        android:layout_height="@dimen/size_image"
-        android:layout_marginTop="@dimen/margin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detail_name"
-        tools:src="@tools:sample/avatars" />
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent"  />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/content_height"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/pokemon_image"
-        android:layout_margin="@dimen/margin"
-        >
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/detail_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/chelsea_market"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorBlue"
+                android:textStyle="bold"
+                android:textSize="@dimen/pokemon_name_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="@dimen/margin"
+                tools:text="NAME POKEMON" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/value_height"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/height"
-            android:textStyle="bold"
-            android:textSize="@dimen/pokemon_name_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/pokemon_image"
+                android:layout_width="@dimen/size_image"
+                android:layout_height="@dimen/size_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail_name"
+                android:background="@color/black"
+                tools:src="@tools:sample/avatars"
+                android:layout_margin="@dimen/margin"/>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/detail_height"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/chelsea_market"
-            android:textSize="@dimen/pokemon_name_size"
-            android:layout_marginStart="@dimen/margin"
-            app:layout_constraintStart_toEndOf="@+id/value_height"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="2,3 M"
-             />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/content_height"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/pokemon_image"
+                android:layout_marginStart="@dimen/margin"
+                android:layout_marginEnd="@dimen/margin"
+                android:layout_marginTop="@dimen/margin"
+                >
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/value_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/height"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/pokemon_name_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/content_height"
-        android:layout_margin="@dimen/margin">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/detail_height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/chelsea_market"
+                    android:textSize="@dimen/pokemon_name_size"
+                    android:layout_marginStart="@dimen/margin"
+                    app:layout_constraintStart_toEndOf="@+id/value_height"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="2,3 M"
+                    />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/value_weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/weight"
-            android:textStyle="bold"
-            android:textSize="@dimen/pokemon_name_size"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/detail_weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/chelsea_market"
-            android:textSize="@dimen/pokemon_name_size"
-            android:layout_marginStart="@dimen/margin"
-            app:layout_constraintStart_toEndOf="@+id/value_weight"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            tools:text="220.0 KG"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/content_weight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/content_height"
+                android:layout_margin="@dimen/margin">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/value_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weight"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/pokemon_name_size"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/detail_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/chelsea_market"
+                    android:textSize="@dimen/pokemon_name_size"
+                    android:layout_marginStart="@dimen/margin"
+                    app:layout_constraintStart_toEndOf="@+id/value_weight"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    tools:text="220.0 KG"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_stats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/content_weight"
+                android:layout_marginTop="@dimen/margin"
+                tools:listitem="@layout/item_stats"
+                android:scrollbars="none" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

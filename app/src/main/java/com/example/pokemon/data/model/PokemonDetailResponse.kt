@@ -13,16 +13,15 @@ data class PokemonDetailResponse(
 
 @Parcelize
 data class Sprites(
-    val backDefault: String,
-    val backShiny: String,
-    val frontDefault: String,
-    val frontShiny: String
+    val back_default: String,
+    val back_shiny: String,
+    val front_default: String,
+    val front_shiny: String
 ) : Parcelable
 
 @Parcelize
 data class Stats(
-    val baseStat: Int,
-    val effort: Int,
+    val base_stat: Int,
     val stat: Stat
 ) : Parcelable
 

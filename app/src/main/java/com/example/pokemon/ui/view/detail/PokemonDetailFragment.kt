@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import com.example.pokemon.data.model.Stats
 import com.example.pokemon.databinding.FragmentPokemonDetailBinding
 import com.example.pokemon.ui.viewmodel.PokemonDetailViewModel
 import com.example.pokemon.util.*
@@ -27,6 +29,7 @@ class PokemonDetailFragment : Fragment() {
 
     private val args: PokemonDetailFragmentArgs by navArgs()
     private val viewModel by viewModels<PokemonDetailViewModel>()
+    private lateinit var statsAdapter: StatsAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,11 +62,24 @@ class PokemonDetailFragment : Fragment() {
                         binding.apply {
                             detailHeight.text = "${result.value.height.getDiv()} $PREFIX_HEIGHT"
                             detailWeight.text = "${result.value.weight.getDiv()} $PREFIX_WEIGHT"
+                            setAdapter(result.value.stats)
                             progress.gone()
                         }
                     }
-                    else -> {}
+                    else -> {
+
+                    }
                 }
+            }
+        }
+    }
+
+    private fun setAdapter(stats: List<Stats>) {
+        statsAdapter = StatsAdapter()
+        binding.rvStats.run {
+            layoutManager = LinearLayoutManager(context)
+            adapter = statsAdapter.also {
+                statsAdapter.submitList(stats)
             }
         }
     }
