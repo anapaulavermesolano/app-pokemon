@@ -2,7 +2,6 @@ package com.example.pokemon.data.network
 
 import com.example.pokemon.data.model.PokemonDetailResponse
 import com.example.pokemon.data.model.PokemonResponse
-import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

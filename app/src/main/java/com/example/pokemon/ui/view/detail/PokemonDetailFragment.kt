@@ -83,8 +83,4 @@ class PokemonDetailFragment : Fragment() {
             }
         }
     }
-
-    companion object {
-
-    }
 }
